@@ -63,6 +63,7 @@ module Mobylette
         # This helper returns exclusively if the request's  user_aget is from a mobile
         # device or not.
         def is_mobile_request?
+          return false if request.user_agent.to_s.downcase =~/ipad/
           request.user_agent.to_s.downcase =~ /#{MOBILE_USER_AGENTS}/
         end
 
